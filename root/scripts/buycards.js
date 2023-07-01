@@ -13,20 +13,21 @@ const createCards = async () => {
             
             let pokeCard = document.createElement('div');
             pokeCard.className= 'pokeCard';
-            pokeCard.innerHTML= `
-            <div class="headerCard">
+            pokeCard.innerHTML = `
+                <div class = "headerCard">
                     <p>${dataPokemon.name}</p>
-                    <i class= "fa-sharp fa-regular fa-heart"/>
+                    <i class = "fa-sharp fa-regular fa-heart"></i>
+                </div>
 
-            </div>
-            <img class= "imgPoke" src="${dataPokemon.sprites.other["home"].front_default}">
-            <div class="headerCard">
+                <img class = "imgPoke" src = "${dataPokemon.sprites.other["home"].front_default}">
+                <div>
                     <p>${dataPokemon.base_experience}</p>
                     <button>Buy</button>
+                </div>
 
-            </div>
-            `        
-            container.appendChild(pokeCard);
+            `
+
+                container.appendChild(pokeCard);
         });
     }catch(error){
         alert("Error")
