@@ -1,20 +1,24 @@
-let url= "https://pokeapi.co/api/v2/pokemon"
+let url = "https://pokeapi.co/api/v2";
+let offset = 0;
+let limit = 20;
+let totalLoaded = 0;
 
-const createCards = async () => {
-    try{
-        const res = await fetch(url);
-        const data = await res.json();
+const getPokemon = async () => {
+  try {
+    const res = await fetch(`${url}/pokemon?offset=${offset}&limit=${limit}`);
+    const data = await res.json();
+
+    data.results.forEach(async (pokemon) => {
+      if (totalLoaded < offset + limit) {
         
-        data.results.forEach(async (pokemon) => {
-            const response = await fetch (pokemon.url);
-            const dataPokemon=await response.json();
+        const response = await fetch (pokemon.url);
+        const dataPokemon=await response.json();
 
-            const [type1,type2]= dataPokemon.types.map(
-                (typePokemon) => typePokemon.type.name
-            );
-            
+        const [type1,type2]= dataPokemon.types.map(
+            (typePokemon) => typePokemon.type.name
+        );
 
-            const container = document.querySelector('.container');
+        const container = document.querySelector('.container');
 
             
             
@@ -28,8 +32,8 @@ const createCards = async () => {
 
                 <img class = "imgPoke" src = "${dataPokemon.sprites.other["home"].front_default}">
                 <div>
-                    <p>${dataPokemon.base_experience}</p>
-                    <button>Buy</button>
+                    <p> Power level ${dataPokemon.base_experience}</p>
+                    <button class="buy">Buy</button>
                 </div>
 
             `
@@ -37,11 +41,24 @@ const createCards = async () => {
                 container.appendChild(pokeCard);
                 pokeCard.setAttribute("type1", type1);
                 pokeCard.setAttribute("type2", type2);
-        });
-    }catch(error){
-        alert("Error")
-    }
-}
+
+        totalLoaded++;
+
+        const cardCount = document.querySelector(".cardsCount");
+        cardCount.textContent = `${totalLoaded} Cards`;
+       
+      }
+    });
+    offset += limit;
+  } catch (error) {
+    alert("Error en la URL");
+  }
+};
+
+
+
+const btnMore = document.querySelector(".btnMore");
+btnMore.addEventListener("click", getPokemon);
 
 const filter = document.querySelectorAll('.type');
 
@@ -67,5 +84,4 @@ const filterByType = (type) => {
     });
 
 }
-
-createCards();
+getPokemon();

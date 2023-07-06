@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body{
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style: none;
+ }
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    /* padding: 50PX;
+    gap: 30px; */
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+h1 {
+    color: #486284;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    font-family: Plus Jakarta Sans;
+    font-size: 48px;
+
+    line-height: 72px;
+    letter-spacing: -0.02em;
+    text-align: center;
+}
+.texto{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.todo{
+    display: flex;
+    flex-direction: column;
+}
+
+.pestanas{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin-top: 2%;
+}
+
+.pestanas li {
+    border-bottom: 1px solid gray;
+    font-weight: normal;
+    width: 100%;
+    text-align: center/* fuente normal por defecto */
+}
+  
+.pestanas li:hover {
+    border-bottom: 2px solid black; /* línea negra al pasar el mouse */
+    font-weight: bold; /* fuente en negrita al pasar el mouse */
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    width: 90%;
+    margin-left: 2%;
+    
+}
+
+.pokeCard{
+    background-color: #DEE5ED;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 4%;
+    border: none;
+    margin: 5% 0;
+    width: 90%;
+}
+
+.headerCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.etiqueta{
+    font-weight: bolder;
+}
+
+.imgPoke{
+    margin: 10%;
+    background-color: white;
+    max-height: 200px;
+    border-radius: 8px;
+}
+
+.buy{
+    color: white;
+    background-color: #306BB3;
+    padding: 8px 25px;
+}
+
+.boton{
+    color: white;
+    background-color: #306BB3;
+    padding: 8px 25px;
+}
+
+.vercartas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    right: 0;
+    margin: 5%;
+}
+
+.cartas{
+    color: #306BB3;
+    position: absolute;
+    right: 0;
+}
+
+.pokeCard.hidden{
+    display: none;
+  }

@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    
+}
+
+ul {
+    list-style: none;
+ }
+
+
+main {
+    display: flex;
+    flex-direction: row;
+    padding: 5%;
+}
+
+section {
+    width: 50%;
+}
+
+.articulo {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    text-align: justify;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bolder;
+    color: #1A202C;
+}
+
+h3 {
+    font-family: Plus Jakarta Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+P {
+    font-family: Plus Jakarta Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    opacity: 45%
+}
+
+.vinculos {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    font-weight:600;
+
+    font-family: Plus Jakarta Sans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    text-align: center;
+}
+
+.imagen{
+    padding-left: 50px;
+}
