@@ -18,6 +18,9 @@ const getPokemon = async () => {
             (typePokemon) => typePokemon.type.name
         );
 
+       //pName.textContent =element.name.charAt(0).toUpperCase() +
+       // element.name.slice(1).toLowerCase();
+
         const container = document.querySelector('.container');
 
             
@@ -25,27 +28,32 @@ const getPokemon = async () => {
             let pokeCard = document.createElement('div');
             pokeCard.className= 'pokeCard';
             pokeCard.innerHTML = `
-                <div class = "headerCard">
-                    <p>${dataPokemon.name}</p>
-                    <i class = "fa-sharp fa-regular fa-heart"></i>
+                <div class = "card-text">
+                    <p  class= "pokemonName">${dataPokemon.name}</p>
+                    <img class="heart" src="./assets/heart-svgrepo-com.svg" alt="heart"/>
                 </div>
 
                 <img class = "imgPoke" src = "${dataPokemon.sprites.other["home"].front_default}">
-                <div>
-                    <p> Power level ${dataPokemon.base_experience}</p>
+                <div class="card-text text-bottom">
+                    <p> Power level:     ${dataPokemon.base_experience}</p>
                     <button class="buy">Buy</button>
                 </div>
 
             `
-
+            
                 container.appendChild(pokeCard);
+               
                 pokeCard.setAttribute("type1", type1);
                 pokeCard.setAttribute("type2", type2);
+                
 
         totalLoaded++;
 
         const cardCount = document.querySelector(".cardsCount");
         cardCount.textContent = `${totalLoaded} Cards`;
+
+        const pName=dataPokemon.name;
+        pName.textContent =element.name.charAt(0).toUpperCase() +element.name.slice(1).toLowerCase();
        
       }
     });

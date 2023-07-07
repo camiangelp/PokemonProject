@@ -48,6 +48,8 @@ h1 {
     display: flex;
     justify-content: center;
     margin-top: 2%;
+    width: 35%;
+    text-align: center;
 }
 
 .todo{
@@ -81,17 +83,43 @@ h1 {
     margin-left: 2%;
     
 }
+.pokemonName{
+    color: black;
+    text-transform: capitalize;
+    font-weight: bold;
+}
 
 .pokeCard{
     background-color: #DEE5ED;
+    padding: 4%;
+    border: none;
+    border-radius: 10px;
+    margin: 5% 0;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 10px;
-    padding: 4%;
-    border: none;
-    margin: 5% 0;
-    width: 90%;
+}
+.heart{
+    height: 1em;
+}
+.heart:hover{
+    height: 1.2em;
+    transition: 0.2s;
+}
+.card-text{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    align-items:center;
+    margin: 2% 10% 00 10%;
+    color: black;
+    text-transform: capitalize;
+   
+}
+.text-bottom{
+    margin-bottom: 5%;
+    margin-top: 0%;
 }
 
 .headerCard{
@@ -107,10 +135,14 @@ h1 {
 }
 
 .imgPoke{
-    margin: 10%;
+    
     background-color: white;
-    max-height: 200px;
-    border-radius: 8px;
+    padding: 8%;
+    border: none;
+    width: 80%;
+    height: 80%;
+    border-radius: 4px;
+    margin: 10%;
 }
 
 .buy{
@@ -125,10 +157,11 @@ h1 {
     padding: 8px 25px;
 }
 
-.vercartas{
+.more-cards{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    justify-content: space-between;
     position: relative;
     right: 0;
     margin: 5%;
@@ -143,3 +176,20 @@ h1 {
 .pokeCard.hidden{
     display: none;
   }
+.more-cards{
+    display: flex;
+    justify-content:space-between;
+    align-self: flex-end;
+    width: 50%;
+    align-items: center;
+    margin-right: 7vw;
+}
+  .btnMore {
+    color: white;
+    background-color: #306BB3;
+    width: 12vw;
+    font-weight: 600;
+    padding: 2% 2%;
+    border-radius: 4px;
+    margin: 4% 0;
+}

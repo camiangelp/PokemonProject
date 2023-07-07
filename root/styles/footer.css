@@ -39,11 +39,19 @@ footer {
     justify-content: space-between;
 }
 
-.listinf{
+.listinf {
     display: flex;
     flex-direction: column;
     gap: 20px;
     justify-content: center;
+   
+    font-family: Plus Jakarta Sans;
+    font-size: 20px;
+    font-weight:lighter;
+    line-height: 30px;
+    letter-spacing: -0.02em;
+    text-align: left;
+
 }
 
 .listinf a{
@@ -53,15 +61,6 @@ footer {
 .titulo{
     font-weight: bolder;
 }
-/* .fa-brands {
-    background: white;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    -webkit-box-shadow: -4px -1px 43px 1px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: -4px -1px 43px 1px rgba(0, 0, 0, 0.25;
-    box-shadow: -4px -1px 43px 1px rgba(0, 0, 0, 0.25);
-} */
+.textFooter{
+    color: white;
+}
