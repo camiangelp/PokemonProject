@@ -3,8 +3,16 @@
     background-color: #022C43;
     color: #ffffff;
   }
+
+  .dark_mode>main>section>h1{
+    color: white;
+  }
+
+  .dark_mode>main>h1{
+    color: white;
+  }
   
-dark_mode.a{
+.dark_mode>main>section>ul>li>a{
     color: white;
 }
 

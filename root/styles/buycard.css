@@ -176,15 +176,16 @@ h1 {
 .pokeCard.hidden{
     display: none;
   }
-.more-cards{
+.more-cards {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     align-self: flex-end;
     width: 50%;
     align-items: center;
     margin-right: 7vw;
 }
-  .btnMore {
+
+.btnMore {
     color: white;
     background-color: #306BB3;
     width: 12vw;
