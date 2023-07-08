@@ -1,22 +1,18 @@
- body.dark_mode {
-    /* Estilos para el modo oscuro */
-    background-color: #022C43;
-    color: #ffffff;
-  }
-
-  .dark_mode>main>section>h1{
-    color: white;
-  }
-
-  .dark_mode>main>h1{
-    color: white;
-  }
-  
-.dark_mode>main>section>ul>li>a{
-    color: white;
+body.dark_mode {
+  background-color: #022C43;
+  color: #ffffff;
 }
 
-dark_mode.pestanas{
+.dark_mode main section h1,
+.dark_mode main h1 {
+  color: white;
+}
+
+.dark_mode main section ul li a {
+  color: white;
+}
+
+.dark_mode .pestanas {
   display: flex;
   justify-content: space-around;
   width: 90%;
@@ -24,14 +20,14 @@ dark_mode.pestanas{
   color: #ffffff;
 }
 
-dark_mode.pestanas li {
+.dark_mode .pestanas li {
   border-bottom: 1px solid gray;
   font-weight: normal;
   width: 100%;
-  text-align: center/* fuente normal por defecto */
+  text-align: center;
 }
 
-dark_mode.pestanas li:hover {
-  border-bottom: 2px solid lightblue; /* línea negra al pasar el mouse */
-  font-weight: bold; /* fuente en negrita al pasar el mouse */
+.dark_mode .pestanas li:hover {
+  border-bottom: 2px solid lightblue;
+  font-weight: bold;
 }

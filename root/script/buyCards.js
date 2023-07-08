@@ -1,3 +1,10 @@
+/** Buy Cards
+ * The code fetches Pokémon data from the API, stores it in the pokemons array, and renders the cards based on the current offset,
+ * limit, and type filters. 
+ * The "Load More" button allows for dynamically loading more Pokémon cards, 
+ * and the type filters enable filtering based on the selected type.
+ */
+
 let url = "https://pokeapi.co/api/v2";
 let offset = 0;
 let limit = 20;
@@ -6,7 +13,12 @@ let currentType = "all";
 
 const pokeContainer = document.querySelector(".container");
 
-// Function that creates cards and renders them in HTML
+/** renderCards
+ * is a function that takes an array of Pokémon data and renders the cards in the HTML.
+ * It creates a new div element for each Pokémon card, adds the necessary HTML content, 
+ * and appends the card to the container element.
+ * @param {*} pokemons 
+ */
 const renderCards = (pokemons) => {
   pokeContainer.innerHTML = ""; // Clean container before rendering new cards
 
@@ -34,12 +46,18 @@ const renderCards = (pokemons) => {
   totalCards.textContent = `${pokemons.length} Cards`;
 };
 
-// Get data from the API and populate the pokemons array
+/**getPokemon
+ * is an asynchronous function that retrieves Pokémon data from the API.
+ * It first fetches a large number of Pokémon (limit 100000) to ensure all Pokémon are retrieved.
+ * The retrieved data is mapped to the pokemons array, with initial values for sprites, types, and base experience.
+ * Additional data (sprites, types, and base experience) for each Pokémon is fetched and stored in the array.
+ */
 const getPokemon = async () => {
   try {
     const res = await fetch(`${url}/pokemon?limit=100000&offset=0`);
     const data = await res.json();
 
+    // Map the retrieved data to the pokemons array
     pokemons = data.results.map((pokemon) => ({
       url: pokemon.url,
       name: pokemon.name,
@@ -48,24 +66,30 @@ const getPokemon = async () => {
       base_experience: 0,
     }));
 
+    // Fetch additional data for each Pokémon
     await Promise.all(
       pokemons.map(async (pokemon) => {
         const res = await fetch(pokemon.url);
         const data = await res.json();
 
+        // Update the sprites, types, and base experience for each Pokémon
         pokemon.sprites = data.sprites;
         pokemon.types = data.types;
         pokemon.base_experience = data.base_experience;
       })
     );
-
+     // Render the initial set of cards  
     renderCards(pokemons.slice(offset, limit));
   } catch (error) {
     alert("URL not found");
   }
 };
 
-// Load more cards
+/** loadMoreCards
+ * is a function that loads additional cards when the "Load More" button is clicked.
+ * The offset is updated to fetch the next set of Pokémon data.
+ * If the currentType is "all", all Pokémon are rendered. Otherwise, only Pokémon matching the current type are rendered.
+ */
 const loadMoreCards = () => {
   offset += limit;
 
@@ -82,7 +106,12 @@ const loadMoreCards = () => {
   }
 };
 
-// Filter Pokemon Cards
+/** filterByType 
+ * is a function that filters Pokémon cards based on the selected type.
+ * It updates the offset and currentType variables.
+ * If the type is "all", all Pokémon are rendered. Otherwise, only Pokémon of the selected type are rendered.
+ * @param {*} type 
+ */
 const filterByType = (type) => {
   offset = 0;
   currentType = type;
