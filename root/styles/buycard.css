@@ -113,8 +113,13 @@
   }
   
   .heart:hover {
-    height: 1.2em;
+    transform: scale(1.2);
     transition: 0.2s;
+  }
+
+  .heart.checked{
+    fill: red;
+    background-color: red;
   }
   
   .card-text {

@@ -29,7 +29,8 @@ const renderCards = (pokemons) => {
     pokeCard.innerHTML = `
       <div class = "card-text">
         <p>${pokemon.name}</p>
-        <img class="heart" src="./assets/heart-svgrepo-com.svg" alt="heart"/>
+        <i class="fa-regular fa-heart heart"></i>
+        
       </div>
       <img class="imgPoke" src="${pokemon.sprites.other["home"].front_default}">
       <div class="card-text text-bottom">
@@ -80,6 +81,9 @@ const getPokemon = async () => {
     );
      // Render the initial set of cards  
     renderCards(pokemons.slice(offset, limit));
+    setupFavorites();
+
+ 
   } catch (error) {
     console.log(error);
     
@@ -119,6 +123,7 @@ const filterByType = (type) => {
 
   if (type === "all") {
     renderCards(pokemons.slice(0, limit));
+    setupFavorites();
   } else {
     const filteredPokemon = pokemons.filter((pokemon) => {
       return pokemon.types.some((pokemonType) => {
@@ -127,6 +132,7 @@ const filterByType = (type) => {
     });
 
     renderCards(filteredPokemon.slice(0, limit));
+    setupFavorites();
   }
 };
 
@@ -149,3 +155,27 @@ typeList.forEach((typeText) => {
     filterByType(type);
   });
 });
+
+const setupFavorites=()=>{
+  const hearts= document.querySelectorAll(".heart");
+  
+  hearts.forEach(heart =>{
+    heart.addEventListener("click", (event) => {
+      // const unchecked= document.querySelector(".unchecked");
+      // unchecked.classList.replace("unchecked","checked");
+      // event.target.classList.replace("checked","unchecked");
+      // event.preventDefault();
+      
+      if(event.target.className.includes("fa-regular")){
+        event.target.classList.remove("fa-regular")
+        event.target.classList.add("fa-solid")
+      } else {
+        event.target.classList.remove("fa-solid")
+        event.target.classList.add("fa-regular")
+      }
+    
+    });
+
+  })
+  
+}
