@@ -62,18 +62,27 @@
     margin-top: 2%;
   }
   
-  .pestanas li {
+  .pestanaInactive {
     border-bottom: 1px solid gray;
     font-weight: normal;
     width: 100%;
     text-align: center;
   }
   
-  .pestanas li:hover {
+  /* .pestanas li:hover {
+    border-bottom: 2px solid black;
+    font-weight: bold;
+  } */
+
+  .pestanaActive {
     border-bottom: 2px solid black;
     font-weight: bold;
   }
-  
+  .type{
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+  }
   .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

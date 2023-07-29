@@ -4,10 +4,10 @@ footer {
     justify-content: space-between;
     background-color: #306BB3;
     width: 100%;
-    height: 10%;
+    height: 5%;
     color: white;
     align-items: center;
-    padding: 5%;
+    padding: 1rem;
 }
 
 .redes {
@@ -32,7 +32,7 @@ footer {
 }
 
 .informacion{
-    padding: 100px;
+    padding: 1rem;
     width: 70%;
     display: flex;
     flex-direction: row;
@@ -46,7 +46,7 @@ footer {
     justify-content: center;
    
     font-family: Plus Jakarta Sans;
-    font-size: 20px;
+    font-size: 10px;
     font-weight:lighter;
     line-height: 30px;
     letter-spacing: -0.02em;

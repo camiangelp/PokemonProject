@@ -54,7 +54,7 @@ const renderCards = (pokemons) => {
  */
 const getPokemon = async () => {
   try {
-    const res = await fetch(`${url}/pokemon?limit=100000&offset=0`);
+    const res = await fetch(`${url}/pokemon?limit=128&offset=0`);
     const data = await res.json();
 
     // Map the retrieved data to the pokemons array
@@ -81,7 +81,8 @@ const getPokemon = async () => {
      // Render the initial set of cards  
     renderCards(pokemons.slice(offset, limit));
   } catch (error) {
-    alert("URL not found");
+    console.log(error);
+    
   }
 };
 
@@ -139,7 +140,11 @@ const typeList = document.querySelectorAll(".type");
 
 typeList.forEach((typeText) => {
   typeText.addEventListener("click", (event) => {
+    const pestanaActive= document.querySelector(".pestanaActive");
+    pestanaActive.classList.replace("pestanaActive","pestanaInactive");
+    event.target.classList.replace("pestanaInactive","pestanaActive");
     event.preventDefault();
+
     const type = typeText.textContent.toLowerCase();
     filterByType(type);
   });
